@@ -156,9 +156,9 @@ async def cmd_start(message: Message):
         update_last_seen(user.id)
     
     # Отправляем фото с сообщением
-    photo_path = Path("IMG_6812.jpeg")
+    photo_path = Path("1.png")
     if photo_path.exists():
-        photo = FSInputFile("IMG_6812.jpeg")
+        photo = FSInputFile("1.png")
         await message.answer_photo(
             photo=photo,
             caption="""Привет! Я - Бот, который поможет тебе не попасться на мошенников. Я помогу отличить реальный подарок от чистого визуала, чистый подарок без рефаунда и подарок, за который уже вернули деньги.
@@ -250,7 +250,7 @@ async def process_support_message(message: Message, state: FSMContext):
 async def back_to_main_handler(callback: CallbackQuery):
     try:
         # Проверяем, есть ли у сообщения caption (фото с подписью)
-        photo_path = Path("IMG_6812.jpeg")
+        photo_path = Path("1.png")
         
         if hasattr(callback.message, 'caption') and callback.message.caption is not None:
             # Это сообщение с фото и подписью (например, инструкция)
@@ -276,7 +276,7 @@ async def back_to_main_handler(callback: CallbackQuery):
             if photo_path.exists():
                 # Удаляем текстовое сообщение и отправляем новое с фото
                 await callback.message.delete()
-                photo = FSInputFile("IMG_6812.jpeg")
+                photo = FSInputFile("1.png")
                 await callback.message.answer_photo(
                     photo=photo,
                     caption="""Привет! Я - Бот, который поможет тебе не попасться на мошенников. Я помогу отличить реальный подарок от чистого визуала, чистый подарок без рефаунда и подарок, за который уже вернули деньги.
@@ -296,9 +296,9 @@ async def back_to_main_handler(callback: CallbackQuery):
     except Exception as e:
         # Если не удалось подменить, отправляем новое сообщение
         try:
-            photo_path = Path("IMG_6812.jpeg")
+            photo_path = Path("1.png")
             if photo_path.exists():
-                photo = FSInputFile("IMG_6812.jpeg")
+                photo = FSInputFile("1.png")
                 await callback.message.answer_photo(
                     photo=photo,
                     caption="""Привет! Я - Бот, который поможет тебе не попасться на мошенников. Я помогу отличить реальный подарок от чистого визуала, чистый подарок без рефаунда и подарок, за который уже вернули деньги.
